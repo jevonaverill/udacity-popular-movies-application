@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.avelox.jevonaverill.udacitypopularmoviesapplication">
+<manifest
+    package="com.avelox.jevonaverill.udacitypopularmoviesapplication"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
+        android:launchMode="singleTop"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.PopularMovies">
+
+        <activity
+            android:name=".ui.activity.BrowseMoviesActivity"
+            android:label="@string/title_browse_movies"
+            android:theme="@style/Theme.PopularMovies.BrowseMovies">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.activity.MovieDetailsActivity"
+            android:parentActivityName=".ui.activity.BrowseMoviesActivity"
+            android:theme="@style/Theme.PopularMovies.MovieDetails" />
+
+        <meta-data
+            android:name="com.avelox.jevonaverill.udacitypopularmoviesapplication.utils.GlideSetup"
+            android:value="GlideModule" />
+
     </application>
 
 </manifest>
